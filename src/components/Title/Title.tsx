@@ -4,7 +4,7 @@ import { useEffect, useRef } from 'react';
 import { Title as MantineTitle } from '@mantine/core';
 import { useDocumentTitle, useDocumentVisibility } from '@mantine/hooks';
 
-import { getRandomTitle } from '~/utils';
+import { getDocumentTitle, getRandomTitle } from '~/utils';
 
 interface TitleProps {
     initial: string;
@@ -23,7 +23,7 @@ export const Title = ({ initial }: TitleProps) => {
 
     const title = titleRef.current;
 
-    useDocumentTitle(`${title} | Martin Macura`);
+    useDocumentTitle(getDocumentTitle(title));
 
     return <MantineTitle order={2}>{title}</MantineTitle>;
 };

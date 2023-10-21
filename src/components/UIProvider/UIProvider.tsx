@@ -10,7 +10,11 @@ interface UIProviderProps extends PropsWithChildren {
 
 export const UIProvider = ({ children, colorScheme }: UIProviderProps) => {
     return (
-        <RealMantineProvider forceColorScheme={colorScheme ?? undefined} theme={theme}>
+        <RealMantineProvider
+            defaultColorScheme={colorScheme ?? 'auto'}
+            forceColorScheme={colorScheme ?? undefined}
+            theme={theme}
+        >
             {children}
         </RealMantineProvider>
     );
