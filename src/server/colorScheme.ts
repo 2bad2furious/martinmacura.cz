@@ -29,7 +29,6 @@ function _setColorScheme(colorScheme: ColorScheme) {
 }
 
 export const setColorScheme = action(z.enum(ALLOWED_COLOR_SCHEMES), async scheme => {
-    await new Promise(r => setTimeout(r, 2500));
     _setColorScheme(scheme);
 });
 
