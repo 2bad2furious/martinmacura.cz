@@ -2,6 +2,7 @@
 
 import { ActionIcon, ActionIconProps } from '@mantine/core';
 import { IconMoonFilled, IconSunHigh } from '@tabler/icons-react';
+// @ts-expect-error
 import { experimental_useFormStatus as useFormStatus } from 'react-dom';
 
 import styles from './SubmitButton.module.css';
