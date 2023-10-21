@@ -10,7 +10,6 @@ const inter = Urbanist({ subsets: ['latin'], weight: ['400', '600'] });
 
 export const metadata: Metadata = {
     title: 'Martin Macura',
-    colorScheme: await getColorScheme(),
     description: 'a guy',
 };
 
