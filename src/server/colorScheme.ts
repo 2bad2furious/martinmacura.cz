@@ -9,7 +9,6 @@ import { ALLOWED_COLOR_SCHEMES, ColorScheme } from '~/constants';
 import { getOtherColorScheme } from '~/utils';
 
 import { action } from './action';
-import { formDataAction } from './formDataAction';
 
 const COOKIE_NAME = 'color-scheme';
 
@@ -32,14 +31,9 @@ export const setColorScheme = action(z.enum(ALLOWED_COLOR_SCHEMES), async scheme
     revalidatePath('/');
 });
 
-export const switchColorScheme = formDataAction(
-    z.object({
-        before: z.enum(ALLOWED_COLOR_SCHEMES),
-    }),
-    ({ before }) => {
-        const scheme = getOtherColorScheme(before);
+export const switchColorScheme = async (formData: FormData) => {
+    const scheme = getOtherColorScheme(formData.get('before') as any);
 
-        _setColorScheme(scheme);
-        redirect('/', RedirectType.replace);
-    },
-);
+    _setColorScheme(scheme);
+    redirect('/', RedirectType.replace);
+};
