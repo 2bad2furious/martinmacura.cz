@@ -2,7 +2,7 @@ import { PropsWithChildren } from 'react';
 import { MantineProvider as RealMantineProvider } from '@mantine/core';
 
 import { ColorScheme } from '~/constants';
-import { theme } from '~/theme';
+import { theme } from '~/styles/theme';
 
 interface UIProviderProps extends PropsWithChildren {
     colorScheme: ColorScheme | null;

@@ -1,13 +1,19 @@
-import { Flex } from '@mantine/core';
+import { Affix, Box, Stack } from '@mantine/core';
 
 import { Buttons, Title } from '~/components';
 import { getInitialTitle } from '~/server';
 
 export default async function Home() {
     return (
-        <Flex mih='100vh' align='center' justify='center'>
+        <Stack mih='100vh' align='center' justify='center'>
             <Title initial={await getInitialTitle()} />
-            <Buttons />
-        </Flex>
+
+            <Affix position={{ bottom: '2rem', right: '2rem' }} visibleFrom='md'>
+                <Buttons />
+            </Affix>
+            <Box hiddenFrom='md'>
+                <Buttons />
+            </Box>
+        </Stack>
     );
 }

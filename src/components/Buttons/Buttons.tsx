@@ -1,4 +1,4 @@
-import { ActionIcon, Affix, Stack } from '@mantine/core';
+import { ActionIcon, Stack } from '@mantine/core';
 
 import { BUTTONS } from '~/constants';
 
@@ -14,15 +14,13 @@ const defaultProps = {
 
 export const Buttons = () => {
     return (
-        <Affix position={{ bottom: '2rem', right: '2rem' }}>
-            <Stack>
-                {BUTTONS.map(({ icon, name, link }) => (
-                    <ActionIcon key={name} component='a' href={link} target='_blank' {...defaultProps}>
-                        {icon}
-                    </ActionIcon>
-                ))}
-                <ColorSchemeSwitchButton {...defaultProps} />
-            </Stack>
-        </Affix>
+        <Stack>
+            {BUTTONS.map(({ icon, name, link }) => (
+                <ActionIcon key={name} component='a' href={link} target='_blank' {...defaultProps}>
+                    {icon}
+                </ActionIcon>
+            ))}
+            <ColorSchemeSwitchButton {...defaultProps} />
+        </Stack>
     );
 };

@@ -25,5 +25,9 @@ export const Title = ({ initial }: TitleProps) => {
 
     useDocumentTitle(getDocumentTitle(title));
 
-    return <MantineTitle order={2}>{title}</MantineTitle>;
+    return (
+        <MantineTitle styles={{ root: { textAlign: 'center' } }} order={2}>
+            {title}
+        </MantineTitle>
+    );
 };
