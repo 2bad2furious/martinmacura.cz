@@ -25,12 +25,11 @@ export async function getColorScheme() {
 
 function _setColorScheme(colorScheme: ColorScheme) {
     cookies().set(COOKIE_NAME, colorScheme);
-
-    revalidatePath('/');
 }
 
 export const setColorScheme = action(z.enum(ALLOWED_COLOR_SCHEMES), async scheme => {
     _setColorScheme(scheme);
+    revalidatePath('/');
 });
 
 export const switchColorScheme = formDataAction(
