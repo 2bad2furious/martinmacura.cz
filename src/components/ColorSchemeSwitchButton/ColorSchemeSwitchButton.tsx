@@ -2,6 +2,7 @@
 
 import { ActionIconProps, useComputedColorScheme } from '@mantine/core';
 
+import { DEFAULT_COLOR_SCHEME } from '~/constants';
 import { switchColorScheme } from '~/server';
 
 import { SubmitButton } from './SubmitButton';
@@ -9,7 +10,7 @@ import { SubmitButton } from './SubmitButton';
 type ColorSchemeSwitchButtonProps = ActionIconProps;
 
 export const ColorSchemeSwitchButton = (props: ColorSchemeSwitchButtonProps) => {
-    const colorScheme = useComputedColorScheme('light');
+    const colorScheme = useComputedColorScheme(DEFAULT_COLOR_SCHEME);
 
     return (
         <form action={switchColorScheme}>

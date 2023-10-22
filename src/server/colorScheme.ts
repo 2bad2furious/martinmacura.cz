@@ -2,6 +2,7 @@
 
 import { revalidatePath } from 'next/cache';
 import { cookies } from 'next/headers';
+import { redirect, RedirectType } from 'next/navigation';
 import { z } from 'zod';
 
 import { ALLOWED_COLOR_SCHEMES, ColorScheme } from '~/constants';
@@ -40,5 +41,6 @@ export const switchColorScheme = formDataAction(
         const scheme = getOtherColorScheme(before);
 
         _setColorScheme(scheme);
+        redirect('/', RedirectType.replace);
     },
 );
